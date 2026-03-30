@@ -4,13 +4,20 @@
   box-sizing: border-box;
 }
 
+.bird-checkbox:focus + label,
+.complete-button:focus,
+.back-button:focus {
+  outline: 3px solid #4caf50;
+  outline-offset: 2px;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
   margin-bottom: 30px;
 }
@@ -116,7 +123,6 @@ h1 {
   }
 }
 
-/* Add these styles to your existing CSS */
 #mainPage,
 #resultsPage {
   width: 100%;

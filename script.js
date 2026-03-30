@@ -15,10 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedState === "true") {
       checkbox.checked = true;
     }
+  });
 
-    checkbox.addEventListener("change", (e) => {
+  mainPage.addEventListener("change", (e) => {
+    if (e.target.classList.contains("bird-checkbox")) {
       localStorage.setItem(e.target.id, e.target.checked);
-    });
+    }
   });
 
   const achievementMessages = {
