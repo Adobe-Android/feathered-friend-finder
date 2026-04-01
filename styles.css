@@ -92,37 +92,6 @@ h1, h2 {
   color: #333;
 }
 
-/* Print Styles */
-@media print {
-  .container {
-    max-width: 100%;
-  }
-
-  .image-grid {
-    gap: 10px;
-  }
-
-  .image-item {
-    box-shadow: none;
-  }
-
-  .checkbox-wrapper label {
-    border: 2px solid black;
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
-
-  .bird-checkbox:checked + label::after {
-    color: black;
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
-
-  .bird-name {
-    font-size: 12px;
-  }
-}
-
 #mainPage,
 #resultsPage {
   width: 100%;
@@ -172,10 +141,17 @@ h1, h2 {
   border-radius: 5px;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
 .complete-button,
-.back-button {
-  display: block;
-  margin: 30px auto;
+.back-button,
+.reset-button {
+  margin-top: 30px;
   padding: 15px 30px;
   font-size: 18px;
   background-color: #4caf50;
@@ -199,6 +175,14 @@ h1, h2 {
   background-color: #555;
 }
 
+.reset-button {
+  background-color: #cc3300;
+}
+
+.reset-button:hover {
+  background-color: #b82e00;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .image-grid {
@@ -215,5 +199,40 @@ h1, h2 {
 @media (max-width: 480px) {
   .image-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .container {
+    max-width: 100%;
+  }
+
+  .image-grid {
+    gap: 10px;
+  }
+
+  .image-item {
+    box-shadow: none;
+  }
+
+  .checkbox-wrapper label {
+    border: 2px solid black;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .bird-checkbox:checked + label::after {
+    color: black;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .bird-name {
+    font-size: 12px;
+  }
+
+  .button-container {
+    display: none;
   }
 }

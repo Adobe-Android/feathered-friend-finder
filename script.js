@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainPage = document.getElementById("mainPage");
   const resultsPage = document.getElementById("resultsPage");
   const completeButton = document.getElementById("completeButton");
+  const resetButton = document.getElementById("resetButton");
   const backButton = document.getElementById("backButton");
   const spotCount = document.getElementById("spotCount");
   const spottedList = document.getElementById("spottedList");
@@ -85,6 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
       message: getRandomMessage(achievementMessages[messageCategory]),
     };
   }
+
+  resetButton.addEventListener("click", () => {
+    localStorage.clear();
+    location.reload();
+  });
 
   completeButton.addEventListener("click", () => {
     const results = calculateResults();
