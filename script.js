@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function calculateResults() {
-    const checkboxes = document.querySelectorAll(".bird-checkbox");
     const totalBirds = checkboxes.length;
     const checkedBirds = Array.from(checkboxes).filter(
       (checkbox) => checkbox.checked
@@ -88,8 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   resetButton.addEventListener("click", () => {
-    localStorage.clear();
-    location.reload();
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+      localStorage.removeItem(checkbox.id);
+    });
   });
 
   completeButton.addEventListener("click", () => {
