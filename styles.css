@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.bird-checkbox:focus + label,
+.bird-checkbox:focus+label,
 .complete-button:focus,
 .back-button:focus {
   outline: 3px solid #4caf50;
@@ -24,6 +24,10 @@ h1,
 h2 {
   text-align: center;
   margin-bottom: 30px;
+}
+
+.notes {
+  display: none;
 }
 
 .image-grid {
@@ -58,10 +62,15 @@ h2 {
   transform: scale(1.05);
 }
 
+.bird-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .bird-name {
-  text-align: center;
   font-size: 16px;
-  margin-top: 5px;
 }
 
 /* Checkbox Styling */
@@ -86,7 +95,7 @@ h2 {
   background-color: white;
 }
 
-.bird-checkbox:checked + label::after {
+.bird-checkbox:checked+label::after {
   content: "✓";
   position: absolute;
   top: 50%;
@@ -211,5 +220,13 @@ h2 {
 
   .button-container {
     display: none;
+  }
+
+  .notes {
+    display: block;
+    break-before: page;
+    margin-top: 30px;
+    border-bottom: 2px solid #000; /* Adds a visual line for note-taking */
+    padding-bottom: 8px;   /* Space between text and underline */
   }
 }
