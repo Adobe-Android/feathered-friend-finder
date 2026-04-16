@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainPage = document.getElementById("mainPage");
   const resultsPage = document.getElementById("resultsPage");
   const completeButton = document.getElementById("completeButton");
+  const resetButton = document.getElementById("resetButton");
   const backButton = document.getElementById("backButton");
   const spotCount = document.getElementById("spotCount");
   const spottedList = document.getElementById("spottedList");
@@ -15,10 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedState === "true") {
       checkbox.checked = true;
     }
+  });
 
-    checkbox.addEventListener("change", (e) => {
+  mainPage.addEventListener("change", (e) => {
+    if (e.target.classList.contains("bird-checkbox")) {
       localStorage.setItem(e.target.id, e.target.checked);
-    });
+    }
   });
 
   const achievementMessages = {
@@ -54,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function calculateResults() {
-    const checkboxes = document.querySelectorAll(".bird-checkbox");
     const totalBirds = checkboxes.length;
     const checkedBirds = Array.from(checkboxes).filter(
       (checkbox) => checkbox.checked
@@ -83,6 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
       message: getRandomMessage(achievementMessages[messageCategory]),
     };
   }
+
+  resetButton.addEventListener("click", () => {
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+      localStorage.removeItem(checkbox.id);
+    });
+  });
 
   completeButton.addEventListener("click", () => {
     const results = calculateResults();
